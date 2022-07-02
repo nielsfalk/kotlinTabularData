@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   kotlin("jvm") version "1.6.21"
-  application
+  `maven-publish`
 }
 
 group = "de.nielsfalk"
@@ -29,6 +29,13 @@ tasks.withType<KotlinCompile> {
   kotlinOptions.jvmTarget = "1.8"
 }
 
-application {
-  mainClass.set("MainKt")
+publishing {
+  publications {
+    create<MavenPublication>("maven") {
+      groupId = "de.nielsfalk"
+      artifactId = "given-when-then"
+      version = "1.0"
+      from(components["java"])
+    }
+  }
 }
