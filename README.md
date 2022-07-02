@@ -46,6 +46,18 @@ companion object {
 }
 ```
 
+Data can also be defined in Markdown-Tables. In IntelliJ with language-injection the Markdown has syntax-highlighting.
+
+```kotlin
+val data = readMarkdown<Triple<TestEnum?, Int?, String?>>(
+  """    
+  | enum | int  | string |
+  |------|------|--------|
+  | null | null | null   |  
+  | Foo  | 42   | Bar    |
+  """
+)
+```
 
 ## Getting started
 
