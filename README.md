@@ -3,7 +3,7 @@
 [![](https://jitpack.io/v/nielsfalk/kotlinTabularData.svg)](https://jitpack.io/#nielsfalk/kotlinTabularData)
 
 
-provides a DSL to define Data in a tabular way. It is inspired by [Spock](https://spockframework.org/)
+provides a DSL to define Data in a tabular way. It is inspired by [Spock](https://spockframework.org/).
 
 ## Examples
 
@@ -98,7 +98,7 @@ or follow the Instructions on [jitpack](https://jitpack.io/#nielsfalk/kotlinTabu
 
 ## Full Spock Dsl
 
-to archive the full [Spock](https://spockframework.org/)-Dsl use this project bundled in [GivenWhenThen](https://github.com/nielsfalk/givenWhenThen) and write expressive tests like this:
+to achieve the full [Spock](https://spockframework.org/)-Dsl use this project bundled in [GivenWhenThen](https://github.com/nielsfalk/givenWhenThen) and write expressive tests like this:
 
 ```kotlin
 class ShowcaseTest : GivenWhenThenTest(
