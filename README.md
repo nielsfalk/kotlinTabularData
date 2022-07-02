@@ -49,7 +49,8 @@ companion object {
 Data can also be defined in Markdown-Tables. In IntelliJ with language-injection the Markdown has syntax-highlighting.
 
 ```kotlin
-val data = readMarkdown<Triple<TestEnum?, Int?, String?>>("""    
+val data = readMarkdown<Triple<TestEnum?, Int?, String?>>(
+  """    
   | enum | int  | string |
   |------|------|--------|
   | null | null | null   |  
@@ -62,7 +63,8 @@ The @MarkdownSource annotation can be used to Parameterize a test directly with 
 
 ```kotlin
 @ParameterizedTest
-@MarkdownSource("""    
+@MarkdownSource(
+  """    
   | enum | int  | string       |
   |------|------|--------------|
   | null | 1    | Hallo World! |  
