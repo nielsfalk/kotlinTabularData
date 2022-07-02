@@ -8,8 +8,11 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import strikt.api.expect
+import strikt.api.expectCatching
 import strikt.api.expectThat
+import strikt.assertions.isA
 import strikt.assertions.isEqualTo
+import strikt.assertions.isFailure
 
 class KotlinTabularDataParserKtTest {
   @Test
@@ -27,6 +30,22 @@ class KotlinTabularDataParserKtTest {
         Triple(Foo, 42, "Bar")
       )
     )
+  }
+
+  @Test
+  fun `test data is required`() {
+
+      expectCatching {
+        readTabularData<Triple<TestEnum?, Int?, String?>> {
+          @Suppress("UNUSED_EXPRESSION") null
+          Foo
+          @Suppress("UNUSED_EXPRESSION") "something"
+        }
+      }
+
+        .isFailure()
+        .isA<IllegalArgumentException>()
+        .get { message }.isEqualTo("No data provided. The data block needs to call at least one operator fun like ǀ or ǀǀ on the context")
   }
 
   @ParameterizedTest

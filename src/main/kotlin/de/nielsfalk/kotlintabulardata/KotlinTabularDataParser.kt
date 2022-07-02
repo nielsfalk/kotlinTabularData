@@ -20,6 +20,10 @@ inline fun readUntypedData(function: TabularDataBuilder.() -> Unit): List<List<A
   TabularDataBuilder().run {
     function()
     rowBuilders.map { it.cells.toList() }
+  }.also {
+    if (it.flatten().isEmpty()) {
+      throw IllegalArgumentException("No data provided. The data block needs to call at least one operator fun like ǀ or ǀǀ on the context")
+    }
   }
 
 class TabularDataBuilder {
