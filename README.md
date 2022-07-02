@@ -1,6 +1,6 @@
 # Kotlin Tabular Data
 ![example workflow](https://github.com/nielsfalk/kotlinTabularData/actions/workflows/gradle.yml/badge.svg)
-[![](https://jitpack.io/v/nielsfalk/kotlinTabularData.svg)](https://jitpack.io/#nielsfalk/givenWhenThen)
+[![](https://jitpack.io/v/nielsfalk/kotlinTabularData.svg)](https://jitpack.io/#nielsfalk/kotlinTabularData)
 
 
 provides a DSL to define Data in a tabular way. It is inspired by [Spock](https://spockframework.org/)
@@ -49,14 +49,33 @@ companion object {
 Data can also be defined in Markdown-Tables. In IntelliJ with language-injection the Markdown has syntax-highlighting.
 
 ```kotlin
-val data = readMarkdown<Triple<TestEnum?, Int?, String?>>(
-  """    
+val data = readMarkdown<Triple<TestEnum?, Int?, String?>>("""    
   | enum | int  | string |
   |------|------|--------|
   | null | null | null   |  
   | Foo  | 42   | Bar    |
   """
 )
+```
+
+The @MarkdownSource annotation can be used to Parameterize a test directly with a markdown-table
+
+```kotlin
+@ParameterizedTest
+@MarkdownSource("""    
+  | enum | int  | string       |
+  |------|------|--------------|
+  | null | 1    | Hallo World! |  
+  | Foo  | null | Hello World! |
+  """
+)
+fun `use values from Markdown source`(
+    testEnum: TestEnum?,
+    int: Int?,
+    string: String?
+) {
+    // Test implementation
+}
 ```
 
 ## Getting started
