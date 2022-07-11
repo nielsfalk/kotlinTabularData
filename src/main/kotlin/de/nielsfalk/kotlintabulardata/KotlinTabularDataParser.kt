@@ -1,4 +1,4 @@
-package de.nielsfalk.givenwhenthen
+package de.nielsfalk.kotlintabulardata
 
 import org.junit.jupiter.params.provider.Arguments
 import kotlin.reflect.jvm.isAccessible

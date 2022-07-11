@@ -1,7 +1,5 @@
 package de.nielsfalk.kotlintabulardata
 
-import de.nielsfalk.givenwhenthen.readTabularData
-import de.nielsfalk.givenwhenthen.readTestArguments
 import de.nielsfalk.kotlintabulardata.TestEnum.Foo
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
